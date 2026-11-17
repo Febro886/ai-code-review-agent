@@ -15,7 +15,7 @@
 2. tools.py
     - 自定义工具 code_static_analysis
     - 使用Python ast模块解析抽象语法树，提取函数、变量，捕获语法错误
-3. .env：保存API密钥，提交作业不包含该文件
+3. .env：保存 API 密钥，该文件不提交到仓库（已加入 .gitignore）
 
 ## 核心组件
 1. ConversationBufferMemory：保存对话历史，支持多轮追问
