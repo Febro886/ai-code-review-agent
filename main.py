@@ -29,6 +29,7 @@ react_prompt = PromptTemplate.from_template("""
 你是专业Python代码审查助手。
 用户提交代码时，优先调用code_static_analysis工具拿到静态分析结果，结合工具输出做代码审查。
 输出内容需要包含：潜在Bug风险、代码坏味道、改进建议。
+完成审查后，必须以 Final Answer: 开头输出最终审查报告，不要再调用任何工具。
 
 可用工具：{tools}
 工具名称列表：{tool_names}
@@ -49,7 +50,7 @@ agent_executor = AgentExecutor(
     memory=memory,
     verbose=True,
     handle_parsing_errors=True,
-    max_iterations=5
+    max_iterations=8
 )
 
 def cli_interactive():
