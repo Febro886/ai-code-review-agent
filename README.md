@@ -1,4 +1,4 @@
-\# AI Code Review Agent
+# AI Code Review Agent
 
 
 
@@ -10,63 +10,63 @@
 
 
 
-\## 功能
+## 功能
 
 
 
-\- 粘贴代码或读取本地 .py 文件进行审查
+- 粘贴代码或读取本地 .py 文件进行审查
 
-\- AST 静态解析：提取函数与变量结构、捕获语法错误（不执行用户代码，安全）
+- AST 静态解析：提取函数与变量结构、捕获语法错误（不执行用户代码，安全）
 
-\- 大模型结合静态分析结果输出审查报告：潜在 Bug / 坏味道 / 改进建议
+- 大模型结合静态分析结果输出审查报告：潜在 Bug / 坏味道 / 改进建议
 
-\- 多轮对话记忆，可针对审查结果继续追问
+- 多轮对话记忆，可针对审查结果继续追问
 
-\- 完善的异常容错：解析失败、工具报错、迭代超限均不会使程序崩溃
-
-
-
-\## 技术栈
+- 完善的异常容错：解析失败、工具报错、迭代超限均不会使程序崩溃
 
 
 
-\- Python 3.11
-
-\- LangChain（ReAct Agent + ConversationBufferMemory）
-
-\- LLM：通义千问 qwen-plus（DashScope API）
-
-\- 自定义工具：基于 ast 模块的静态代码分析
+## 技术栈
 
 
 
-\## 快速开始
+- Python 3.11
+
+- LangChain（ReAct Agent + ConversationBufferMemory）
+
+- LLM：通义千问 qwen-plus（DashScope API）
+
+- 自定义工具：基于 ast 模块的静态代码分析
 
 
 
-1\. 安装依赖：pip install -r requirements.txt
-
-2\. 复制 .env.example 为 .env，填入你的 DASHSCOPE\_API\_KEY
-
-3\. 运行：python main.py
-
-4\. 粘贴代码，最后一行输入 END 提交；或输入 file:examples/bad\_code.py 审查示例文件；输入 exit 退出
+## 快速开始
 
 
 
-\## 示例
+1. 安装依赖：pip install -r requirements.txt
+
+2. 复制 .env.example 为 .env，填入你的 DASHSCOPE_API_KEY
+
+3. 运行：python main.py
+
+4. 粘贴代码，最后一行输入 END 提交；或输入 file:examples/bad_code.py 审查示例文件；输入 exit 退出
 
 
 
-对 examples/bad\_code.py 的审查可识别出：除零风险（calc 未校验 b）、
-
-列表索引越界（data\[10]），并给出修复建议。
-
-!\[审查运行示例](docs/review-demo.png)
+## 示例
 
 
 
-\## 设计文档
+对 examples/bad_code.py 的审查可识别出：除零风险（calc 未校验 b）、
+
+列表索引越界（data[10]），并给出修复建议。
+
+![审查运行示例](docs/review-demo.png)
+
+
+
+## 设计文档
 
 
 
@@ -74,13 +74,13 @@
 
 
 
-\## 后续改进方向
+## 后续改进方向
 
 
 
-\- 支持审查整个项目目录与 Git diff
+- 支持审查整个项目目录与 Git diff
 
-\- 增加 Web 界面替代命令行
+- 增加 Web 界面替代命令行
 
-\- 接入更多静态检查规则（如未使用变量、命名规范）
+- 接入更多静态检查规则（如未使用变量、命名规范）
 
